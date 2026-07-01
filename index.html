@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución de caso práctico • Trafficker Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --primary: #0F172A;
+            --accent: #0EA5E9;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .section-header {
+            font-size: 1.75rem;
+            line-height: 1.1;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .metric-big {
+            font-size: 3.25rem;
+            line-height: 1;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .data-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.875rem;
+        }
+        
+        .data-table th {
+            background-color: #0F172A;
+            color: white;
+            font-weight: 600;
+            text-align: left;
+            padding: 14px 16px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #E2E8F0;
+            vertical-align: top;
+        }
+        
+        .data-table tr:hover {
+            background-color: #F8FAFC;
+        }
+
+        .analysis-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+
+        .nav-active {
+            color: #0EA5E9;
+            font-weight: 600;
+        }
+
+        .metric-card {
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .problem-pill {
+            background-color: #FEF2F2;
+            color: #B91C1C;
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .solution-pill {
+            background-color: #ECFDF5;
+            color: #047857;
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .pdf-verbatim {
+            background-color: #F8FAFC;
+            border-left: 4px solid #0EA5E9;
+            padding: 1.25rem 1.5rem;
+            font-size: 0.925rem;
+            line-height: 1.65;
+            color: #1E293B;
+        }
+
+        .impact-number {
+            font-size: 2.75rem;
+            line-height: 1;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .landing-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .sticky-nav {
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- NAV -->
+    <nav class="sticky top-0 z-50 bg-white/95 border-b border-slate-200 sticky-nav">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-slate-900 rounded-2xl flex items-center justify-center">
+                        <span class="text-white font-bold text-2xl tracking-tighter">TL</span>
+                    </div>
+                    <div>
+                        <span class="font-semibold text-xl tracking-tight">Resolución de caso práctico</span>
+                        <span class="text-xs text-slate-500 block -mt-1">Trafficker Digital</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-x-8 text-sm">
+                    <a href="#contexto" class="hover:text-sky-600 transition-colors">Contexto</a>
+                    <a href="#diagnostico" class="hover:text-sky-600 transition-colors">Diagnóstico</a>
+                    <a href="#solucion" class="hover:text-sky-600 transition-colors">Solución</a>
+                    <a href="#plan" class="hover:text-sky-600 transition-colors">Plan 30 días</a>
+                    <a href="#contacto" 
+                       class="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-3xl transition-all flex items-center gap-x-2">
+                        <span>Agendar diagnóstico</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="bg-slate-900 text-white pt-16 pb-20">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-xs font-medium tracking-[1.5px] px-4 h-8 rounded-3xl mb-6">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>CASO DE ESTUDIO REAL • TRACKING &amp; PAID MEDIA INMOBILIARIO</span>
+                </div>
+                
+                <h1 class="font-display text-6xl leading-[1.05] tracking-tighter mb-6">
+                    Diagnostiqué por qué<br>
+                    el tráfico <span class="text-sky-400">no convertía</span><br>
+                    en un desarrollo de $4.2M.
+                </h1>
+                
+                <p class="max-w-lg text-xl text-slate-300 mb-3">
+                    Análisis completo de 8 semanas de campañas Meta + Google Ads para <span class="font-semibold text-white">Torre Lumina, Santa Fe</span>.
+                </p>
+                
+                <p class="text-sm text-slate-400 mb-10">Realizado por <span class="text-white font-medium">Ilean Andrea González Díaz</span></p>
+                
+                <div class="flex items-center gap-x-4">
+                    <a href="#diagnostico" 
+                       class="inline-flex items-center justify-center px-8 h-14 bg-white text-slate-900 font-semibold rounded-3xl hover:bg-slate-100 transition-all text-base">
+                        Ver el diagnóstico completo
+                    </a>
+                    <a href="#contacto" 
+                       class="inline-flex items-center justify-center px-8 h-14 border border-white/40 hover:bg-white/10 font-semibold rounded-3xl transition-all text-base">
+                        Quiero este nivel de análisis
+                    </a>
+                </div>
+                
+                <div class="mt-8 flex items-center gap-x-8 text-sm text-slate-400">
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>100% datos reales del PDF</span>
+                    </div>
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>Sin modificar ni una cifra</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRUST BAR -->
+    <div class="border-b border-slate-200 bg-white py-4">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-xs uppercase tracking-widest text-slate-500 font-medium">
+                <div>PRIMERAS 8 SEMANAS DE LANZAMIENTO</div>
+                <div class="hidden md:block w-px h-3 bg-slate-300"></div>
+                <div>TICKET PROMEDIO $4,200,000 MXN</div>
+                <div class="hidden md:block w-px h-3 bg-slate-300"></div>
+                <div>BUYER PERSONAS: EJECUTIVO • FAMILIA • INVERSIONISTA • PROFESIONAL JOVEN</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTEXTO + PROBLEMA -->
+    <section id="contexto" class="max-w-screen-2xl mx-auto px-8 pt-16 pb-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="uppercase text-xs tracking-[2px] text-sky-600 font-semibold mb-3">Paso previo e indispensable</div>
+            <h2 class="section-header mb-8">Inmersión profunda en el proyecto y conocimiento del buyer persona</h2>
+            
+            <div class="pdf-verbatim mb-10">
+                <p class="mb-4">Antes de analizar cualquier tabla de métricas o proponer movimientos de presupuesto, es fundamental reconocer que una de las causas raíz más importantes detrás del bajo rendimiento actual es el desconocimiento detallado del proyecto y de los perfiles reales de comprador.</p>
+                <p><strong>Torre Lumina</strong> es un desarrollo de departamentos en Santa Fe con un precio promedio de <strong>$4,200,000 MXN</strong>. Este ticket no es masivo: requiere un comprador con capacidad económica real, motivaciones específicas y un proceso de decisión más largo. Sin un conocimiento profundo de las características del producto, las amenidades, la ubicación exacta y especialmente los buyer personas reales (ejecutivo corporativo, familia en upgrade, inversionista y profesional joven), es muy difícil diseñar audiencias precisas, mensajes diferenciados y creatividades que conecten. Cuando se desconoce el producto a este nivel, las campañas terminan atrayendo volumen de leads genéricos en lugar de tráfico con intención y capacidad real de compra.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white border border-slate-200 rounded-3xl p-7">
+                    <div class="text-emerald-600 mb-3"><i class="fa-solid fa-user-tie text-2xl"></i></div>
+                    <div class="font-semibold mb-1">Ejecutivo Corporativo</div>
+                    <div class="text-sm text-slate-600">Busca cercanía a oficinas en Santa Fe, estatus y amenities premium.</div>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-3xl p-7">
+                    <div class="text-emerald-600 mb-3"><i class="fa-solid fa-home text-2xl"></i></div>
+                    <div class="font-semibold mb-1">Familia en Upgrade</div>
+                    <div class="text-sm text-slate-600">Busca más espacio, seguridad y mejor calidad de vida.</div>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-3xl p-7">
+                    <div class="text-emerald-600 mb-3"><i class="fa-solid fa-chart-line text-2xl"></i></div>
+                    <div class="font-semibold mb-1">Inversionista</div>
+                    <div class="text-sm text-slate-600">Busca plusvalía y rentabilidad en una de las zonas más sólidas de CDMX.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTRICAS CLAVE / PROBLEMA -->
+    <section class="bg-white border-y border-slate-200 py-12">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="max-w-4xl mx-auto mb-10">
+                <div class="uppercase tracking-[1.5px] text-xs font-semibold text-red-600 mb-2">SEÑALES DE ALERTA EN LAS PRIMERAS 8 SEMANAS</div>
+                <h2 class="section-header">El tráfico llegaba. Los leads calificados no.</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-screen-2xl mx-auto">
+                <!-- Metric 1 -->
+                <div class="metric-card bg-white border border-red-100 rounded-3xl p-7">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-red-600 text-sm font-medium">CPL Meta Ads</div>
+                            <div class="metric-big text-red-600 mt-2">+31%</div>
+                        </div>
+                        <i class="fa-solid fa-arrow-trend-up text-red-400 text-3xl mt-1"></i>
+                    </div>
+                    <div class="text-sm text-slate-600 mt-6">De $270 a $354 entre Semana 1 y Semana 4</div>
+                </div>
+                
+                <div class="metric-card bg-white border border-red-100 rounded-3xl p-7">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-red-600 text-sm font-medium">Volumen de Leads</div>
+                            <div class="metric-big text-red-600 mt-2">-30%</div>
+                        </div>
+                        <i class="fa-solid fa-arrow-trend-down text-red-400 text-3xl mt-1"></i>
+                    </div>
+                    <div class="text-sm text-slate-600 mt-6">Caída sostenida mientras el CPL subía</div>
+                </div>
+                
+                <div class="metric-card bg-white border border-red-100 rounded-3xl p-7">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-red-600 text-sm font-medium">% Leads Calificados</div>
+                            <div class="metric-big text-red-600 mt-2">6-9%</div>
+                        </div>
+                        <i class="fa-solid fa-user-slash text-red-400 text-3xl mt-1"></i>
+                    </div>
+                    <div class="text-sm text-slate-600 mt-6">La gran mayoría no tenía perfil económico para el ticket</div>
+                </div>
+                
+                <div class="metric-card bg-white border border-red-100 rounded-3xl p-7">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-red-600 text-sm font-medium">Sobregasto Meta</div>
+                            <div class="metric-big text-red-600 mt-2">+84%</div>
+                        </div>
+                        <i class="fa-solid fa-wallet text-red-400 text-3xl mt-1"></i>
+                    </div>
+                    <div class="text-sm text-slate-600 mt-6">$92,000 gastados vs $50,000 presupuestados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIAGNÓSTICO META ADS -->
+    <section id="diagnostico" class="max-w-screen-2xl mx-auto px-8 pt-16 pb-12">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <div class="text-sky-600 uppercase text-xs tracking-widest font-semibold">META ADS • 4 SEMANAS</div>
+                    <h2 class="section-header">Análisis del rendimiento publicitario</h2>
+                </div>
+                <div class="text-right text-sm text-slate-500">Presupuesto mensual asignado: <span class="font-semibold text-slate-700">$50,000</span><br>Gasto real: <span class="font-semibold text-red-600">$92,000</span></div>
+            </div>
+            
+            <!-- Meta Table -->
+            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden mb-10 shadow-sm">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Inversión</th>
+                            <th>Impresiones</th>
+                            <th>Clics</th>
+                            <th>CTR</th>
+                            <th>Leads (formulario)</th>
+                            <th>CPL</th>
+                            <th>% Leads calificados</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr>
+                            <td class="font-medium">S1</td>
+                            <td>$23,500</td>
+                            <td>310,000</td>
+                            <td>2,480</td>
+                            <td>0.80%</td>
+                            <td>87</td>
+                            <td>$270</td>
+                            <td>8%</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">S2</td>
+                            <td>$24,100</td>
+                            <td>298,000</td>
+                            <td>2,310</td>
+                            <td>0.77%</td>
+                            <td>91</td>
+                            <td>$265</td>
+                            <td>6%</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">S3</td>
+                            <td>$22,800</td>
+                            <td>275,000</td>
+                            <td>1,980</td>
+                            <td>0.72%</td>
+                            <td>74</td>
+                            <td>$308</td>
+                            <td>9%</td>
+                        </tr>
+                        <tr class="bg-red-50/60">
+                            <td class="font-medium">S4</td>
+                            <td>$21,600</td>
+                            <td>241,000</td>
+                            <td>1,720</td>
+                            <td>0.71%</td>
+                            <td>61</td>
+                            <td class="font-semibold text-red-600">$354</td>
+                            <td>7%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pdf-verbatim">
+                <p class="mb-4"><strong>Interpretación del CPL en contexto de sector y ticket promedio</strong></p>
+                <p>El CPL actual de Meta Ads (entre $265 y $354) se encuentra dentro de rangos razonables para un proyecto en etapa de lanzamiento en Santa Fe. No obstante, la tendencia es claramente negativa: el CPL ha aumentado un 31% entre la Semana 1 y la Semana 4, mientras que el volumen de leads cayó un 30%. Además, el porcentaje de leads calificados se mantiene muy bajo (6%–9%). Esto indica que se está pagando por leads que en su mayoría no tienen el perfil económico necesario para el producto.</p>
+            </div>
+            
+            <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold mb-4 flex items-center gap-x-2"><i class="fa-solid fa-exclamation-triangle text-amber-500"></i> <span>Hipótesis iniciales de causas raíz</span></h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-x-3"><span class="text-red-500 mt-1">•</span> Una desproporcionada inversión en la campaña de Awareness frente a una sub-inversión en Retargeting.</li>
+                        <li class="flex gap-x-3"><span class="text-red-500 mt-1">•</span> El uso de creativos genéricos sin adaptación a los diferentes perfiles de comprador.</li>
+                        <li class="flex gap-x-3"><span class="text-red-500 mt-1">•</span> La probable falta de exclusiones basadas en el feedback del equipo comercial.</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900 text-white rounded-3xl p-7 text-sm">
+                    <div class="uppercase text-xs tracking-widest mb-3 text-sky-400">CONCLUSIÓN DEL ANÁLISIS META</div>
+                    <p>Se está generando un alto volumen de leads que no cuentan con la capacidad económica ni la intención real de compra para un desarrollo de este ticket en Santa Fe. Existe una inconsistencia importante entre el presupuesto asignado y el gasto real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOOGLE ADS -->
+    <section class="max-w-screen-2xl mx-auto px-8 pb-16">
+        <div class="max-w-5xl mx-auto">
+            <div class="mb-8">
+                <div class="text-sky-600 uppercase text-xs tracking-widest font-semibold">GOOGLE ADS • 4 SEMANAS</div>
+                <h2 class="section-header">Problemas principales identificados</h2>
+            </div>
+            
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-y-8">
+                    <div class="md:col-span-2">
+                        <div class="font-semibold text-lg mb-4">1. Performance Max está sobredimensionado</div>
+                        <p class="text-sm text-slate-600">Performance Max recibe $22,000 mensuales, más que Search Genérico ($15,000). En un desarrollo de ticket alto como Torre Lumina, esto representa un riesgo importante. Gran parte de este inventario suele tener una intención mucho menor que una búsqueda activa como “departamentos en venta Santa Fe”.</p>
+                    </div>
+                    <div class="md:col-span-3">
+                        <div class="font-semibold text-lg mb-4">2. Search Genérico (alta intención) está subfinanciado</div>
+                        <p class="text-sm text-slate-600">La campaña de búsqueda genérica es normalmente la que captura usuarios con mayor intención de compra. Sin embargo, recibe menos presupuesto que Performance Max. Esta asignación parece invertida respecto a lo que sería recomendable en un proyecto de ticket alto.</p>
+                        
+                        <div class="mt-6 font-semibold text-lg mb-4">3. Search Branded podría estar sobredimensionado</div>
+                        <p class="text-sm text-slate-600">Invertir $8,000 mensuales en la campaña de marca puede ser excesivo si el volumen de búsquedas de “Torre Lumina” es bajo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Google Performance Table -->
+            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden mb-8">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Inversión</th>
+                            <th>Impresiones</th>
+                            <th>Clics</th>
+                            <th>CTR</th>
+                            <th>Conversiones</th>
+                            <th>CPA</th>
+                            <th>Tipo de conversión</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-medium">S1</td>
+                            <td>$10,900</td>
+                            <td>48,000</td>
+                            <td>1,140</td>
+                            <td>2.38%</td>
+                            <td>22</td>
+                            <td>$495</td>
+                            <td>Formulario + llamada</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">S2</td>
+                            <td>$11,200</td>
+                            <td>51,000</td>
+                            <td>1,210</td>
+                            <td>2.37%</td>
+                            <td>19</td>
+                            <td>$589</td>
+                            <td>Formulario + llamada</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">S3</td>
+                            <td>$11,500</td>
+                            <td>49,500</td>
+                            <td>1,180</td>
+                            <td>2.38%</td>
+                            <td>17</td>
+                            <td>$676</td>
+                            <td>Formulario + llamada</td>
+                        </tr>
+                        <tr class="bg-red-50/70">
+                            <td class="font-medium">S4</td>
+                            <td>$10,300</td>
+                            <td>44,000</td>
+                            <td>1,050</td>
+                            <td>2.39%</td>
+                            <td>14</td>
+                            <td class="font-semibold text-red-600">$736</td>
+                            <td>Formulario + llamada</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pdf-verbatim">
+                <p><strong>Conclusión del análisis Google Ads:</strong> Mientras el CTR se mantiene estable (alrededor de 2.38%), el CPA está empeorando de forma sostenida y las conversiones están cayendo semana tras semana. Se está invirtiendo prácticamente el mismo dinero, pero se obtienen menos conversiones y a un costo cada vez más alto. No se conoce el rendimiento por campaña individual (Search Branded vs Genérico vs Performance Max).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="bg-slate-900 text-white py-16">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="uppercase tracking-[1.5px] text-sky-400 text-xs font-semibold mb-3">ÚLTIMO FILTRO ANTES DEL EQUIPO COMERCIAL</div>
+                <h2 class="text-white text-4xl font-semibold tracking-tight mb-8">El formulario actual genera fricción y pérdida de calidad</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="problem-pill inline-block mb-3">PROBLEMA ACTUAL</div>
+                            <ul class="space-y-3 text-sm text-slate-300">
+                                <li class="flex gap-x-3"><span class="mt-1">•</span> 11 campos → alta fricción, especialmente en mobile (72-77% del tráfico)</li>
+                                <li class="flex gap-x-3"><span class="mt-1">•</span> Campo “¿Cuánto puedes invertir?” en texto libre y no obligatorio → no filtra calidad</li>
+                                <li class="flex gap-x-3"><span class="mt-1">•</span> Tasa de conversión del formulario cayó de 5.8% a 4.6%</li>
+                                <li class="flex gap-x-3"><span class="mt-1">•</span> No existen eventos de tracking en GA4 para medir abandono por campo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-8">
+                        <div class="solution-pill inline-block mb-4">SOLUCIÓN PROPUESTA</div>
+                        <h4 class="font-semibold text-xl mb-4 text-white">Formulario optimizado a 5 campos</h4>
+                        
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-white/20 text-xs text-sky-300">
+                                    <th class="py-3 text-left font-normal">Campo</th>
+                                    <th class="py-3 text-left font-normal">Tipo</th>
+                                    <th class="py-3 text-center font-normal">Obligatorio</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-white/90">
+                                <tr class="border-b border-white/10"><td class="py-3">Nombre completo</td><td>Texto</td><td class="text-center">Sí</td></tr>
+                                <tr class="border-b border-white/10"><td class="py-3">Teléfono</td><td>Teléfono</td><td class="text-center">Sí</td></tr>
+                                <tr class="border-b border-white/10"><td class="py-3">¿Cuál es tu presupuesto aproximado para invertir?</td><td>Dropdown</td><td class="text-center">Sí</td></tr>
+                                <tr class="border-b border-white/10"><td class="py-3">¿Cuándo planeas tomar la decisión de compra?</td><td>Dropdown</td><td class="text-center">Sí</td></tr>
+                                <tr><td class="py-3">¿Cuenta con crédito hipotecario preaprobado?</td><td>Dropdown</td><td class="text-center">No</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIORIZACIÓN -->
+    <section class="max-w-screen-2xl mx-auto px-8 py-16">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="section-header mb-3">Priorización de acciones recomendadas</h2>
+            <p class="text-slate-600 mb-8 max-w-md">Después de todo el análisis, esta es la recomendación de priorización para maximizar resultados con control de presupuesto.</p>
+            
+            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">Prioridad</th>
+                            <th>Problema / Acción</th>
+                            <th>Justificación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="inline-flex w-7 h-7 items-center justify-center bg-red-600 text-white text-xs font-bold rounded-full">1</span></td>
+                            <td class="font-medium">Control de presupuesto + Reestructuración de Performance Max</td>
+                            <td>Se está gastando casi el doble de lo presupuestado en Meta y Performance Max está consumiendo demasiado presupuesto con un CPA que sigue subiendo.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="inline-flex w-7 h-7 items-center justify-center bg-orange-500 text-white text-xs font-bold rounded-full">2</span></td>
+                            <td class="font-medium">Optimización del Formulario + Implementación de Tracking en GA4</td>
+                            <td>Es el último filtro antes de que el lead llegue al equipo comercial. Tiene alta fricción, abandono creciente en mobile y no se puede medir dónde se cae la gente.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="inline-flex w-7 h-7 items-center justify-center bg-amber-500 text-white text-xs font-bold rounded-full">3</span></td>
+                            <td class="font-medium">Definir / Alinear Propuesta de Valor + Buyer Personas</td>
+                            <td>Este es el trabajo estratégico que debió hacerse desde el inicio. Sin una propuesta de valor clara y buyer personas bien definidos, los creativos seguirán siendo genéricos.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="inline-flex w-7 h-7 items-center justify-center bg-yellow-500 text-white text-xs font-bold rounded-full">4</span></td>
+                            <td class="font-medium">Meta Ads: Refrescar creativos + Ajustar audiencias + Aumentar Retargeting</td>
+                            <td>Hay señales claras de fatiga de creativos y audiencia. Además, el Retargeting está muy sub-invertido ($10k).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="inline-flex w-7 h-7 items-center justify-center bg-lime-600 text-white text-xs font-bold rounded-full">5</span></td>
+                            <td class="font-medium">Google Ads: Rebalancear presupuesto (reducir PMax y fortalecer Search Genérico)</td>
+                            <td>Search Genérico (alta intención) está recibiendo menos presupuesto que Performance Max. Hay que corregir esta asignación.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="inline-flex w-7 h-7 items-center justify-center bg-emerald-600 text-white text-xs font-bold rounded-full">6</span></td>
+                            <td class="font-medium">Implementar tracking avanzado y closed-loop</td>
+                            <td>Medir cuántos leads agendan visita, asisten y compran. Esto permitirá optimizar hacia resultados reales y no solo hacia formularios.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUCIÓN: NUEVA ESTRUCTURA -->
+    <section id="solucion" class="bg-white border-t border-slate-200 py-16">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-10">
+                    <div class="text-emerald-600 uppercase text-xs tracking-[1.5px] font-semibold">NUESTRA PROPUESTA</div>
+                    <h2 class="section-header">Redistribución del presupuesto y nueva estructura de campañas</h2>
+                    <p class="mt-3 text-slate-600 max-w-lg">Pasar de una estrategia centrada principalmente en volumen de leads a una más orientada a <strong>calidad y eficiencia</strong>.</p>
+                </div>
+                
+                <!-- Budget Allocation -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-emerald-600 text-white rounded-3xl p-8">
+                        <div class="text-emerald-200 text-sm">TOTAL PRESUPUESTO MENSUAL</div>
+                        <div class="text-6xl font-semibold tracking-tighter mt-2 mb-1">$95,000</div>
+                        <div class="text-emerald-200">MXN</div>
+                    </div>
+                    <div class="bg-white border border-emerald-200 rounded-3xl p-8">
+                        <div class="flex justify-between">
+                            <div>
+                                <div class="text-emerald-600 text-sm font-medium">GOOGLE ADS</div>
+                                <div class="text-5xl font-semibold tracking-tighter mt-1">$55,000</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-3xl font-semibold text-emerald-600">58%</div>
+                                <div class="text-xs text-emerald-600/70">Alta intención</div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-xs text-emerald-700">Captar demanda con alta intención de compra y maximizar eficiencia</div>
+                    </div>
+                    <div class="bg-white border border-emerald-200 rounded-3xl p-8">
+                        <div class="flex justify-between">
+                            <div>
+                                <div class="text-emerald-600 text-sm font-medium">META ADS</div>
+                                <div class="text-5xl font-semibold tracking-tighter mt-1">$40,000</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-3xl font-semibold text-emerald-600">42%</div>
+                                <div class="text-xs text-emerald-600/70">Calidad + Retargeting</div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-xs text-emerald-700">Generar leads calificados mediante mejor segmentación y retargeting</div>
+                    </div>
+                </div>
+                
+                <!-- Meta Proposed Structure -->
+                <div class="mb-10">
+                    <h3 class="font-semibold mb-4 flex items-center gap-x-2"><span class="text-sky-600">META ADS</span> — Estructura propuesta</h3>
+                    <div class="overflow-x-auto bg-white border border-slate-200 rounded-3xl">
+                        <table class="data-table min-w-full text-xs">
+                            <thead>
+                                <tr>
+                                    <th>Campaña</th>
+                                    <th>Presupuesto mensual sugerido</th>
+                                    <th>Objetivo Meta</th>
+                                    <th>Tipo de conversión</th>
+                                    <th>Justificación clave</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-medium">Awareness Fase 1</td>
+                                    <td>$6,000</td>
+                                    <td>Interacción</td>
+                                    <td>Conversiones iniciadas</td>
+                                    <td>Mantener presencia de marca con presupuesto controlado. Enfocado en generar interacción.</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Clientes Potenciales – Instant Forms</td>
+                                    <td>$12,000</td>
+                                    <td>Clientes Potenciales</td>
+                                    <td>Formularios instantáneos</td>
+                                    <td>Formulario de descarte. Herramienta de pre-calificación mediante preguntas estratégicas.</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Clientes Potenciales – Landing Page</td>
+                                    <td>$14,000</td>
+                                    <td>Clientes Potenciales</td>
+                                    <td>Sitio web (Landing Page dedicada)</td>
+                                    <td>Enfocado en generar leads de mayor calidad con mejor experiencia y pre-calificación más profunda.</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Retargeting Fase 1</td>
+                                    <td>$8,000</td>
+                                    <td>Interacción</td>
+                                    <td>Formulario / Video Viewers</td>
+                                    <td>Dirigido a usuarios que ya interactuaron. Etapa con mayor probabilidad de calificación.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4 flex items-center gap-x-2"><span class="text-sky-600">GOOGLE ADS</span> — Estructura propuesta</h3>
+                    <div class="bg-white border border-slate-200 rounded-3xl p-7 text-sm">
+                        <p class="mb-4"><strong>Campaña principal recomendada:</strong> Búsqueda | Torre Lumina | Alta Intención con $26,250 MXN asignados al grupo “Departamentos Santa Fe” + grupos adicionales para “Compra de Departamentos” e “Inversión Inmobiliaria”.</p>
+                        <p>Se recomienda activar grupos de Fase 2 (Departamentos Premium, para Ejecutivos, Ubicaciones Cercanas) únicamente cuando los términos de búsqueda y el volumen de conversiones lo justifiquen. La campaña de marca Torre Lumina se mantiene con $4,000 MXN.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLAN 30 DÍAS -->
+    <section id="plan" class="max-w-screen-2xl mx-auto px-8 py-16 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="section-header mb-8">Lo que le presentaríamos al cliente</h2>
+            
+            <div class="pdf-verbatim mb-10">
+                <p class="font-semibold mb-3">Situación actual:</p>
+                <p>Durante las últimas semanas hemos observado un deterioro progresivo en el rendimiento de las campañas. En Meta Ads, el CTR y el volumen de leads han disminuido de forma sostenida, mientras que el CPL ha aumentado. En Google Ads, aunque el CTR se mantiene estable, el CPA ha subido considerablemente y las conversiones han caído de 22 a 14 en las últimas 4 semanas.</p>
+                <p class="mt-4">Adicionalmente, el formulario actual del sitio presenta alta fricción, especialmente en mobile, lo que genera una baja tasa de conversión y dificulta la pre-calificación de los leads. Como resultado, estamos generando un volumen importante de leads, pero con un porcentaje de calificación muy bajo (entre 6% y 9%), lo que impacta directamente la eficiencia del equipo comercial y el número de visitas al desarrollo.</p>
+            </div>
+            
+            <div>
+                <div class="font-semibold mb-4">Plan para los próximos 30 días:</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border border-emerald-200 bg-emerald-50 rounded-3xl p-6">
+                        <div class="solution-pill mb-3">ACCIONES PRINCIPALES</div>
+                        <ul class="text-sm space-y-2.5">
+                            <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Redistribución del presupuesto (Google 58% / Meta 42%)</li>
+                            <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Optimización del formulario a 5 campos con dropdowns de pre-calificación obligatorios</li>
+                            <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Refresco de creativos en Meta Ads y ajuste de audiencias</li>
+                            <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Implementación de mejor tracking (eventos de formulario + closed-loop)</li>
+                        </ul>
+                    </div>
+                    <div class="border border-slate-200 rounded-3xl p-6 text-sm">
+                        <div class="font-medium mb-3">Hipótesis de Prueba 1: Optimización del Formulario</div>
+                        <p class="text-xs text-slate-600">La implementación de un formulario simplificado a 5 campos con dropdowns de pre-calificación obligatorios aumentará la tasa de conversión del formulario y mejorará el porcentaje de leads calificados.</p>
+                        <div class="mt-4 text-xs"><span class="font-semibold">Métrica de éxito:</span> Tasa de conversión &gt; 7% y % leads calificados &gt; 12%</div>
+                        
+                        <div class="font-medium mt-6 mb-3">Hipótesis de Prueba 2: Rebalanceo de Performance Max</div>
+                        <p class="text-xs text-slate-600">Reducir el presupuesto de Performance Max en un 30-40% y reasignarlo a la campaña de Búsqueda Genérica permitirá mejorar el CPA general y aumentar el número de conversiones de calidad.</p>
+                        <div class="mt-4 text-xs"><span class="font-semibold">Métrica de éxito:</span> Reducción del CPA general de Google Ads en al menos 15%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CIERRE / AGRADECIMIENTO -->
+    <section class="bg-slate-900 text-white py-20">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center">
+            <div class="max-w-2xl mx-auto">
+                <div class="inline-block px-5 py-1.5 text-xs tracking-[2px] bg-white/10 rounded-3xl mb-6">EJERCICIO COMPLETADO</div>
+                
+                <h2 class="font-display text-5xl tracking-tighter leading-none mb-6">Gracias por la oportunidad</h2>
+                
+                <p class="text-slate-300 max-w-lg mx-auto mb-4">Agradezco sinceramente la confianza para desarrollar este ejercicio.</p>
+                
+                <p class="text-slate-400 text-sm max-w-md mx-auto">Este trabajo fue realizado por <span class="text-white font-medium">Ilean Andrea González Díaz</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-500 text-xs py-8 px-8">
+        <div class="max-w-screen-2xl mx-auto flex justify-center md:justify-between items-center gap-y-3 text-center md:text-left">
+            <div>© 2026 • Ejercicio de caso para evaluación de agencia de marketing inmobiliario • Realizado por Ilean Andrea González Díaz</div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#0EA5E9');
+        }
+        
+        // Simple smooth scroll for nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Keyboard accessibility hint
+        console.log('%c[Landing Page] Presentación tipo landing page para evaluación de trackers/traffickers inmobiliarios lista.', 'color:#64748b');
+        
+        initializeTailwind();
+    </script>
+</body>
+</html>
